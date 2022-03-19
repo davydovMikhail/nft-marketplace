@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-contract Token {
+contract Token20 {
     string public constant name = "Training Test Token";
     string public constant symbol = "TTTDMS";
     uint8 public constant decimals = 18;

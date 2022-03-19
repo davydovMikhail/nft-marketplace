@@ -25,7 +25,9 @@ contract Token721 is ERC721, ERC721URIStorage {
         _;
     }
 
-    constructor() ERC721("Contract For Marketplace", "CFM") {}
+    constructor() ERC721("Contract For Marketplace", "CFM") {
+        _owner = msg.sender;
+    }
 
     function setNewMarketplaceAddress(address _address) public onlyOwner {
         _marketplace = _address;
