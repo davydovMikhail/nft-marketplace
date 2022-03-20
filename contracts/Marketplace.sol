@@ -109,6 +109,10 @@ contract Marketplace is Ownable {
             _auctions[_tokenId].startTime + threeDays < block.timestamp,
             "the time for debriefing has not yet expired"
         );
+        require(
+            _auctions[_tokenId].seller != address(0),
+            "the auction has ended before you"
+        );
         if (_auctions[_tokenId].bidderCounter > 2) {
             IERC20(_address20).safeTransfer(
                 _auctions[_tokenId].seller,
@@ -136,5 +140,6 @@ contract Marketplace is Ownable {
                 _tokenId
             );
         }
+        _auctions[_tokenId].seller = address(0);
     }
 }
